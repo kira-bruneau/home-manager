@@ -118,11 +118,11 @@ let
     '';
 in {
   options = {
-    enable = mkOption {
-      type = with types; bool;
-      default = config.settings != [ ];
-      description = "Whether to enable custom bookmarks.";
-    };
+    enable = mkEnableOption ''
+      custom bookmarks.
+
+      Warning: This may silently overwrite any previously existing bookmarks
+    '';
 
     settings = mkOption {
       type = with types;
@@ -158,8 +158,7 @@ in {
         ]
       '';
       description = ''
-        Preloaded bookmarks. Note, this may silently overwrite any
-        previously existing bookmarks!
+        Custom bookmarks.
       '';
     };
 
